@@ -607,8 +607,8 @@ def _logic_send_welcome(message):
         f"✳️ Username: `@{user_username or 'Not set'}`\n"
         f"🔰 Status: {status}\n"
         f"📁 Files: {current_files} / {limit_str}\n\n"
-        f"✅ Upload .py/.zip\n"
-        f"👤 OWNER :- @ahmed_snde.\n"
+        f"✅ Upload .py / .zip\n"
+        f"👤 OWNER :- @{YOUR_USERNAME.replace('@','')}.\n"
     )
     bot.send_message(chat_id, text, reply_markup=create_reply_keyboard_main_menu(user_id), parse_mode="Markdown")
 
@@ -621,7 +621,7 @@ def _logic_upload_file(message):
     if get_user_file_count(user_id) >= file_limit:
         bot.reply_to(message, "⚠️ File limit reached. Delete some files first.")
         return
-    bot.reply_to(message, "📤 Send `.py` / `.js` / `.zip` file.\n🛑 It will wait for OWNER approval.")
+    bot.reply_to(message, "📤 Send `.py` / `.zip` file.\n🛑 It will wait for OWNER approval.")
 
 def _logic_check_files(message):
     user_id = message.from_user.id
@@ -655,7 +655,7 @@ def _logic_statistics(message):
 
 def _logic_contact_owner(message):
     m = types.InlineKeyboardMarkup()
-    m.add(types.InlineKeyboardButton("📞 Contact Owner", url=f"https://t.me/{YOUR_USERNAME.replace('@','')}"))
+    m.add(types.InlineKeyboardButton("📞 @AHMED_SNDE", url=f"https://t.me/{YOUR_USERNAME.replace('@','')}"))
     bot.reply_to(message, "Contact:", reply_markup=m)
 
 def _logic_toggle_lock_bot(message):
@@ -673,7 +673,7 @@ BUTTON_TEXT_TO_LOGIC = {
     "📂 Check Files": _logic_check_files,
     "⚡ Bot Speed": _logic_bot_speed,
     "📊 Statistics": _logic_statistics,
-    "📞 Contact Owner": _logic_contact_owner,
+    "📞 @AHMED_SNDE": _logic_contact_owner,
     "🔒 Lock Bot": _logic_toggle_lock_bot,
 }
 
