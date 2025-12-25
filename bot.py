@@ -602,14 +602,14 @@ def _logic_send_welcome(message):
         status = "⭐ Premium"
 
     text = (
-        f"〽️ Welcome, {user_name}!\n\n"
-        f"🆔 Your ID: `{user_id}`\n"
-        f"✳️ Username: `@{user_username or 'Not set'}`\n"
-        f"🔰 Status: {status}\n"
-        f"📁 Files: {current_files} / {limit_str}\n\n"
-        f"✅ Upload .py / .zip\n"
-        f"👤 OWNER :- @{YOUR_USERNAME.replace('@','')}.\n"
-    )
+    f"〽️ Welcome, {user_name}!\n\n"
+    f"🆔 Your ID: `{user_id}`\n"
+    f"✳️ Username: `@{user_username or 'Not set'}`\n"
+    f"🔰 Status: {status}\n"
+    f"📁 Files: {current_files} / {limit_str}\n\n"
+    f"✅ Upload .py / .zip\n"
+    f"👤 OWNER :- @{YOUR_USERNAME.replace('@','')}.\n"
+)
     bot.send_message(chat_id, text, reply_markup=create_reply_keyboard_main_menu(user_id), parse_mode="Markdown")
 
 def _logic_upload_file(message):
