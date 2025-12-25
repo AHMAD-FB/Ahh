@@ -607,7 +607,7 @@ def _logic_send_welcome(message):
         f"✳️ Username: `@{user_username or 'Not set'}`\n"
         f"🔰 Status: {status}\n"
         f"📁 Files: {current_files} / {limit_str}\n\n"
-        f"✅ Upload .py/.js/.zip\n"
+        f"✅ Upload .py / .zip\n"
         f"🛑 Files run only after OWNER approval.\n"
         f"👤 OWNER :- `@ahmed_snde`\n"
     )
