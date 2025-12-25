@@ -16,3 +16,4 @@ pyfiglet
 colorama
 getuseragent
 pyTelegramBotAPI
+faker
