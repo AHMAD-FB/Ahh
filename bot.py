@@ -609,7 +609,7 @@ def _logic_send_welcome(message):
         f"📁 Files: {current_files} / {limit_str}\n\n"
         f"✅ Upload .py/.js/.zip\n"
         f"🛑 Files run only after OWNER approval.\n"
-        f"👤 OWNER :- @ahmed_snde\n"
+        f"👤 OWNER :- `@ahmed_snde`\n"
     )
 
     bot.send_message(chat_id, text, reply_markup=create_reply_keyboard_main_menu(user_id), parse_mode="Markdown")
