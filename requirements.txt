@@ -9,3 +9,10 @@ python-dateutil==2.9.0.post0
 bs4
 tele
 telebot
+requests
+beautifulsoup4
+user-agent
+pyfiglet
+colorama
+getuseragent
+pyTelegramBotAPI
