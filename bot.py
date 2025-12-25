@@ -318,7 +318,7 @@ def create_reply_keyboard_main_menu(user_id: int):
         ["📢 Updates Channel"],
         ["📤 Upload File", "📂 Check Files"],
         ["⚡ Bot Speed", "📊 Statistics"],
-        ["📞 Contact Owner"]
+        ["📞 @AHMED_SNDE"]
     ]
     admin_extra = [
         ["🔒 Lock Bot", "🟢 Running All Code"],
@@ -339,7 +339,7 @@ def create_main_menu_inline(user_id: int):
           types.InlineKeyboardButton("📊 Statistics", callback_data="stats"))
     if user_id in admin_ids:
         m.add(types.InlineKeyboardButton("🔒 Lock/Unlock", callback_data="toggle_lock"))
-    m.add(types.InlineKeyboardButton("📞 Contact Owner", url=f"https://t.me/{YOUR_USERNAME.replace('@','')}"))
+    m.add(types.InlineKeyboardButton("📞 @AHMED_SNDE", url=f"https://t.me/{YOUR_USERNAME.replace('@','')}"))
     return m
 
 def create_control_buttons(script_owner_id: int, file_name: str, is_running: bool):
@@ -609,6 +609,7 @@ def _logic_send_welcome(message):
         f"📁 Files: {current_files} / {limit_str}\n\n"
         f"✅ Upload .py/.js/.zip\n"
         f"🛑 Files run only after OWNER approval.\n"
+        f"👤 OWNER :- @ahmed_snde.\n"
     )
     bot.send_message(chat_id, text, reply_markup=create_reply_keyboard_main_menu(user_id), parse_mode="Markdown")
 
@@ -762,7 +763,7 @@ def reject_pending_callback(call):
         pass
 
     try:
-        bot.send_message(chat_id, "❌ your code not safe")
+        bot.send_message(chat_id, "❌ FILE REJECTED ❌\n \nYour file has been rejected by the administrator.\nReason: The file contains suspicious code patterns that pose a security risk.\nPlease review your code and remove any potentially harmful operations.")
     except Exception:
         pass
 
@@ -799,7 +800,7 @@ def handle_file_upload_doc(message):
     file_name = doc.file_name or ""
     ext = os.path.splitext(file_name)[1].lower()
     if ext not in [".py", ".js", ".zip"]:
-        bot.reply_to(message, "⚠️ Only .py .js .zip allowed.")
+        bot.reply_to(message, "⚠️ Only .py .zip allowed.")
         return
 
     # download
@@ -860,7 +861,7 @@ def handle_callbacks(call):
 
     if data == "upload":
         bot.answer_callback_query(call.id)
-        return bot.send_message(chat_id, "📤 Send `.py` / `.js` / `.zip` (waits for OWNER approval).")
+        return bot.send_message(chat_id, "📤 Send `.py` / `.zip` (waits for OWNER approval).")
 
     if data == "stats":
         bot.answer_callback_query(call.id)
