@@ -515,7 +515,7 @@ def handle_zip_file(downloaded_file_content: bytes, file_name_zip: str, message)
                 main_script_name, file_type = js_files[0], "js"
 
         if not main_script_name:
-            bot.reply_to(message, "❌ ZIP has no .py or .js file.")
+            bot.reply_to(message, "❌ ZIP has no .py file.")
             return
 
         # Move extracted to user folder (overwrite)
@@ -607,8 +607,7 @@ def _logic_send_welcome(message):
         f"✳️ Username: `@{user_username or 'Not set'}`\n"
         f"🔰 Status: {status}\n"
         f"📁 Files: {current_files} / {limit_str}\n\n"
-        f"✅ Upload .py/.js/.zip\n"
-        f"🛑 Files run only after OWNER approval.\n"
+        f"✅ Upload .py/.zip\n"
         f"👤 OWNER :- @ahmed_snde.\n"
     )
     bot.send_message(chat_id, text, reply_markup=create_reply_keyboard_main_menu(user_id), parse_mode="Markdown")
